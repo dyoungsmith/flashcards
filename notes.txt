@@ -1,0 +1,15 @@
+TO AUTO BOOTSTRAP: 
+- require in html
+- register our module in app.js
+	var app = angular.module('name', [dependencies])
+- ng-app='name' to define the root of the app (ie - $rootScope); typically this is on html or body tag
+
+- $scope is a JS object that template and controller both have access to!
+
+- ng-class is used to conditionally control template element appearance
+	ng-class="{ appearance: condition for appearance }"
+
+- filters use | 
+	<ng-repeat="flashCard in flashCards | orderBy: 'flashCard.question'">
+
+- when filtering inside of an ng-repeat, just use property name by which to order, not obj.property
