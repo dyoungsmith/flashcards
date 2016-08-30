@@ -1,4 +1,5 @@
-TO AUTO BOOTSTRAP: 
+CONTROLLERS:
+To auto-bootstrap: 
 - require in html
 - register our module in app.js
 	var app = angular.module('name', [dependencies])
@@ -13,3 +14,42 @@ TO AUTO BOOTSTRAP:
 	<ng-repeat="flashCard in flashCards | orderBy: 'flashCard.question'">
 
 - when filtering inside of an ng-repeat, just use property name by which to order, not obj.property
+
+
+
+FACTORIES:
+- QUESTION: queryParams???
+- ng-include
+	- keep html in a separate file, ajax out for the html (way to split up html into diff files!!)
+	- this is a directive
+	- ng-include="'html/templates/nav.html"
+	- or can have a scope variable: ng-inclue="scopeVariable"
+	- sends ajax request out to the url you give, expects the server to respond with an html string!
+- custom filters
+	app.filter('filterName', function() {
+		return function(thingToFilter) {
+			return 'prependStr' + thingToFilter + 'appendStr';
+		}
+	})
+	{{ toFilter | filterName }}
+
+
+
+STATES:
+
+
+
+DIRECTIVES:
+- name your directives with the same prefix!
+- ng-show, ng-class, ng-click,
+- directive: ngClass; html: ng-class
+- any time you want to interact with your DOM >> use directives!
+- put them inside of a new module!
+   - angular.module.directive
+- steps:
+   1. create a module for your directives: angular.module(‘MyDirectives’, [])
+   2. load the module into your app: angular.module(‘MyApp’, [‘MyDirectives’])
+   3. register your directive: angular.module(‘MyDirectives’).directive(‘myDirective’, function()…
+   4. use your directive in html: <div my-directive> … </div>
+- by default, a directive does not have its own scope
+- 
